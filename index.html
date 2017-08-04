@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sergio Meza Angular Test</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Mobile Specific Metas
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- FONT
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+        <!-- CSS
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/skeleton.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body ng-app="AngularTest">
+        <div class="container">
+            <div ng-controller="Controller">
+                <label>Filter | Display only patients older than</label>
+                <input type="text" type="number" ng-model="age"
+                       placeholder="...years" class="u-full-width">
+                <hr>
+                <h2>Patients</h2>
+                <table class="u-full-width">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Age</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--Order by from the function in the controller-->
+                    <tr ng-repeat="patient in patients | orderBy:sorterFunc | filter : olderThan(age)"
+                        ng-include="'patient-template.html'"></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
