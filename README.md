@@ -1,4 +1,4 @@
-# Pre-employment test / Angular
+# Sergio Meza test / Angular
 
 ## Tasks:
 
